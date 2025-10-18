@@ -1,5 +1,6 @@
-core_controllers:
+security_controllers:
     resource:
-        path: ../src/Core/Controller/
-        namespace: App\Core\Controller
+        
+        path: ../src/Security/Controller/
+        namespace: App\Security\Controller
     type: attribute
