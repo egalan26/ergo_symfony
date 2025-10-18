@@ -4,3 +4,9 @@ security_controllers:
         path: ../src/Security/Controller/
         namespace: App\Security\Controller
     type: attribute
+
+home_controllers:
+    resource:
+        path: ../src/Home/Controller/
+        namespace: App\Home\Controller
+    type: attribute
