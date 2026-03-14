@@ -2,7 +2,7 @@ security_controllers:
     resource:
         
         path: ../src/Core/Infrastructure/Controller/
-        namespace: App\Security\Infrastructure\Controller
+        namespace: App\Core\Infrastructure\Controller
     type: attribute
 
 home_controllers:
