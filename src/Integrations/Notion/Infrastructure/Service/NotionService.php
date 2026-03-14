@@ -20,7 +20,6 @@ class NotionService implements NotionInterface
     public function getPage(string $pageID): PageModel
     {
         $pageModel = $this->notionApiConnector->getPage($pageID);
-        $this->loadChildrenBlocks($pageID, $pageModel);
         return $pageModel;
     }
 
@@ -42,8 +41,9 @@ class NotionService implements NotionInterface
                 $dataSources = $this->notionApiConnector->extractDataSources($databaseItems);
                 foreach ($dataSources as $dt){
                     $page = $this->getPage($dt['database_parent']['page_id']);
-
                     // TODO pending: extract pages from datasource
+                    $this->loadChildrenBlocks($pageID, $page);
+
                 }
             }
         }

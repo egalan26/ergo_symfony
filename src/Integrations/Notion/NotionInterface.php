@@ -8,4 +8,5 @@ interface NotionInterface
 {
 
     public function getPage(string $pageID): PageModel;
+    public function loadChildrenBlocks(string $pageID, PageModel &$pageModel): void;
 }

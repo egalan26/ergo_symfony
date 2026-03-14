@@ -20,7 +20,11 @@ final class HomeController extends BaseController
     public function index(): JsonResponse
     {
 //        $page = $this->notion->getPage('323c39f9356e8033bd55cc6f66a7d655');
-        $page = $this->notion->getPage('323c39f9356e8012aa76d34fe4ec8048');
+        $pageID = '323c39f9356e8012aa76d34fe4ec8048';
+
+        $page = $this->notion->getPage($pageID);
+        $this->notion->loadChildrenBlocks($pageID, $page);
+
         return $this->json($page);
     }
 }
