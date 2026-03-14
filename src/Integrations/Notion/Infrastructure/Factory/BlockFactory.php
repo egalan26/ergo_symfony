@@ -3,12 +3,14 @@
 namespace App\Integrations\Notion\Infrastructure\Factory;
 
 use App\Integrations\Notion\Infrastructure\Models\BlocksType\TodoBlockModel;
+use App\Integrations\Notion\Infrastructure\Models\BlocksType\ToggleBlockModel;
 
 class BlockFactory
 {
     const CLASS_AVAILABLE =
         [
-            'to_do' => TodoBlockModel::class
+            'to_do' => TodoBlockModel::class,
+            'toggle' => ToggleBlockModel::class,
         ];
 
     private static $blockType;

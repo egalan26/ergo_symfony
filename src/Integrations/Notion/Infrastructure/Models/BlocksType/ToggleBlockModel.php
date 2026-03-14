@@ -4,9 +4,10 @@ namespace App\Integrations\Notion\Infrastructure\Models\BlocksType;
 
 use App\Integrations\Notion\Infrastructure\Models\BlockModel;
 
-class TodoBlockModel extends BlockModel
+class ToggleBlockModel extends BlockModel
 {
-    private $blockType = 'to_do';
+
+    private $blockType = 'toggle';
 
     #[\Override]
     public function loadContent(array $apiResponse): void
@@ -28,5 +29,4 @@ class TodoBlockModel extends BlockModel
     {
         return $this->blockType;
     }
-
 }
