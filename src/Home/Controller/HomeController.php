@@ -8,7 +8,6 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/home')]
-#[IsGranted('ROLE_USER')]
 final class HomeController extends BaseController
 {
     #[Route('/index', name: 'index')]
