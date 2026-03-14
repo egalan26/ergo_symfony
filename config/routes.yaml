@@ -1,12 +1,12 @@
 security_controllers:
     resource:
         
-        path: ../src/Security/Controller/
-        namespace: App\Security\Controller
+        path: ../src/Core/Infrastructure/Controller/
+        namespace: App\Security\Infrastructure\Controller
     type: attribute
 
 home_controllers:
     resource:
-        path: ../src/Home/Controller/
-        namespace: App\Home\Controller
+        path: ../src/Home/Infrastructure/Controller/
+        namespace: App\Home\Infrastructure\Controller
     type: attribute

@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Security\Controller;
+namespace App\Home\Infrastructure\Controller;
 
-use App\Core\Controller\BaseController;
+use App\Core\Infrastructure\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/security')]
-final class SecurityController extends BaseController
+#[Route('/home')]
+final class HomeController extends BaseController
 {
-    #[Route('/login', name: 'login')]
+    #[Route('/index', name: 'index')]
     public function index(): JsonResponse
     {
         return $this->json([

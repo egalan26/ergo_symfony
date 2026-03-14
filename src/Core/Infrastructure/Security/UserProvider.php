@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Index\Infrastructure\Security;
+namespace App\Core\Infrastructure\Security;
 
+use App\Index\Infrastructure\Security\User;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UserNotFoundException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;

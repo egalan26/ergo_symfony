@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Index\Infrastructure\Security\Controller;
+namespace App\Core\Infrastructure\Controller;
 
-use App\Core\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
 
