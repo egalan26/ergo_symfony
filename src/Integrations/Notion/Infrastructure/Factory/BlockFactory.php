@@ -2,6 +2,7 @@
 
 namespace App\Integrations\Notion\Infrastructure\Factory;
 
+use App\Integrations\Notion\Infrastructure\Models\BlocksType\DatabaseBlockModel;
 use App\Integrations\Notion\Infrastructure\Models\BlocksType\TodoBlockModel;
 use App\Integrations\Notion\Infrastructure\Models\BlocksType\ToggleBlockModel;
 
@@ -11,6 +12,7 @@ class BlockFactory
         [
             'to_do' => TodoBlockModel::class,
             'toggle' => ToggleBlockModel::class,
+            'child_database' => DatabaseBlockModel::class
         ];
 
     private static $blockType;
