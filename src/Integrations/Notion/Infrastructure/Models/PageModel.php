@@ -7,14 +7,9 @@ class PageModel extends BaseNotionModel
 
     private array $blockList = [];
 
-    public function __construct(array $apiResponse, array $children)
+    public function __construct(array $apiResponse)
     {
-
-        foreach ($children['results'] as $block) {
-            $this->addBlock(new BlockModel($block));
-        }
         $this->id = $apiResponse['id'];
-        dd($this);
     }
 
     public function addBlock(BlockModel $blockModel)

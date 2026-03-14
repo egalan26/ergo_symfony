@@ -7,10 +7,8 @@ use App\Integrations\Notion\Infrastructure\Factory\BlockFactory;
 class BlockModel extends BaseNotionModel
 {
 
-    const AVAILABLE_TYPES = [
-        'to_do',
-        'toggle'
-    ];
+
+
     private string $type;
     private mixed $content = '';
 
@@ -18,31 +16,9 @@ class BlockModel extends BaseNotionModel
     {
 
         $this->id = $apiResponse['id'];
-        $this->loadContentAndType($apiResponse);
+        $this->loadContent($apiResponse);
     }
 
-    /**
-     * @param array $apiResponse
-     * @return void
-     */
-    public function loadContentAndType(array $apiResponse): void
-    {
-        foreach (self::AVAILABLE_TYPES as $blockType) {
-            if (!isset($apiResponse[$blockType])){
-                continue;
-            }
-            if ($blockType ?? false) {
-                $this->type = $blockType;
-
-                $this->content = BlockFactory::get($blockType, $apiResponse);
-            }
-        }
-    }
-
-    /**
-     * @param string $type
-     * @return BlockModel
-     */
     public function setType(string $type): BlockModel
     {
         $this->type = $type;
@@ -74,4 +50,10 @@ class BlockModel extends BaseNotionModel
     {
         return $this->content;
     }
+
+    public function loadContent(array $apiResponse)
+    {
+        $this->setContent('CONTENT NOT LOADED : Implement pending');
+    }
+
 }

@@ -2,28 +2,26 @@
 
 namespace App\Integrations\Notion\Infrastructure\Factory;
 
+use App\Integrations\Notion\Infrastructure\Models\BlocksType\TodoBlockModel;
+
 class BlockFactory
 {
+    const CLASS_AVAILABLE =
+        [
+            'to_do' => TodoBlockModel::class
+        ];
 
     private static $blockType;
 
     public static function get(string $type, array $apiResponse)
     {
         self::$blockType = $type;
-        if (method_exists(BlockFactory::class, $type)) {
-            return self::$type($apiResponse);
+        $className = self::CLASS_AVAILABLE[$type] ?? null;
+        if (null === $className) {
+            return null;
         }
-        return null;
+        $block = new $className($apiResponse);
+        return $block;
     }
 
-    public static function to_do($apiResponse)
-    {
-        $content = '';
-        $rich_text = $apiResponse[self::$blockType]['rich_text'];
-        foreach ($rich_text as $text) {
-            $content .= $text['text']['content'];
-
-        }
-        return $content;
-    }
 }
