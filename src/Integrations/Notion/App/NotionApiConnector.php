@@ -17,11 +17,6 @@ class NotionApiConnector
     {
     }
 
-    public function extracted()
-    {
-        // TODO pending
-    }
-
     public function getPage(string $pageId): PageModel
     {
         $response = $this->httpClient->request('GET', self::NOTION_API_URL . "/pages/{$pageId}", [

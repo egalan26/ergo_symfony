@@ -2,11 +2,14 @@
 
 namespace App\Integrations\Notion\Infrastructure\Models;
 
+use App\Integrations\Notion\Infrastructure\Factory\BlockFactory;
+
 class BlockModel extends BaseNotionModel
 {
 
     const AVAILABLE_TYPES = [
-        'to_do'
+        'to_do',
+        'toggle'
     ];
     private string $type;
     private mixed $content = '';
@@ -25,13 +28,13 @@ class BlockModel extends BaseNotionModel
     public function loadContentAndType(array $apiResponse): void
     {
         foreach (self::AVAILABLE_TYPES as $blockType) {
+            if (!isset($apiResponse[$blockType])){
+                continue;
+            }
             if ($blockType ?? false) {
                 $this->type = $blockType;
-                $rich_text = $apiResponse[$blockType]['rich_text'];
-                foreach ($rich_text as $text) {
-                    $this->content .= $text['text']['content'];
 
-                }
+                $this->content = BlockFactory::get($blockType, $apiResponse);
             }
         }
     }
