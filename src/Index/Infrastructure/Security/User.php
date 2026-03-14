@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Security;
+namespace App\UserManager\Domain\Entity;
 
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;

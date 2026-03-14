@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Security\Controller;
+namespace App\Index\Infrastructure\Controller;
 
 use App\Core\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[Route('/security')]
-final class SecurityController extends BaseController
+#[Route('/home')]
+#[IsGranted('ROLE_USER')]
+final class HomeController extends BaseController
 {
-    #[Route('/login', name: 'login')]
+    #[Route('/index', name: 'index')]
     public function index(): JsonResponse
     {
         return $this->json([

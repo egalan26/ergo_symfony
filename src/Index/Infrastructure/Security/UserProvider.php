@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Security;
+namespace App\Index\Infrastructure\Security;
 
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UserNotFoundException;

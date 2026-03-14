@@ -1,0 +1,38 @@
+services:
+
+  app:
+    build: .
+    volumes:
+      - ./docker/apache/vhost.conf:/etc/apache2/sites-available/vhost.conf
+      - ./docker/apache/vhost.conf:/etc/apache2/sites-enabled/vhost.conf
+      - .:/var/www/html
+    ports:
+      - '8000:80'
+    environment:
+      - APP_ENV=dev
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432
+    depends_on:
+      - db
+    networks:
+      - symfony-network
+
+  db:
+    image: postgres:16
+
+    ports:
+      - "5432:5432"
+    networks:
+      - symfony-network
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+
+volumes:
+  db_data:
+
+networks:
+  symfony-network:
+    driver: bridge
