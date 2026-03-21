@@ -15,7 +15,7 @@ final class HomeController extends BaseController
     #[Route('/')]
     public function test()
     {
-        return new JsonResponse('ok');
+        return new JsonResponse('okss');
     }
 
 
