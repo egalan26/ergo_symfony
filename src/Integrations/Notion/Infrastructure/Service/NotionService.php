@@ -42,7 +42,7 @@ class NotionService implements NotionInterface
                 foreach ($dataSources as $dt){
                     $page = $this->getPage($dt['database_parent']['page_id']);
                     // TODO pending: extract pages from datasource
-                    $this->loadChildrenBlocks($pageID, $page);
+//                    DANGER $this->loadChildrenBlocks($pageID, $page); // ==__METHOD__ -> bucle infinito
 
                 }
             }
