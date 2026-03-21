@@ -16,6 +16,22 @@ services:
     networks:
       - symfony-network
 
+
+  front:
+    build: .
+    volumes:
+      - ./docker/apache/vhost.conf:/etc/apache2/sites-available/vhost.conf
+      - ./docker/apache/vhost.conf:/etc/apache2/sites-enabled/vhost.conf
+      - ./frontend:/var/www/html
+    ports:
+      - '80:80'
+    environment:
+      - APP_ENV=dev
+    depends_on:
+      - app
+    networks:
+      - symfony-network
+
   db:
     image: postgres:16
 
